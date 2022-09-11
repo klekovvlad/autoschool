@@ -46,15 +46,18 @@ function scrollFunction() {
 
 const popupButton = document.querySelectorAll('.modal');
 const popup = document.querySelector('.popup');
+const popupBody = document.querySelector('.popup__body');
+const popupClose = document.querySelector('.popup__close');
 
 popupButton.forEach(openPopup => {
     openPopup.addEventListener('click', () => {
       popup.classList.toggle('popup-open');
+      popupBody.classList.toggle('popup__body-open');
     })
 });
-
-popup.addEventListener('click', () => {
+popupClose.addEventListener('click', () => {
   popup.classList.toggle('popup-open');
+  popupBody.classList.toggle('popup__body-open');
 })
 
 $('.feedback__slider').slick({

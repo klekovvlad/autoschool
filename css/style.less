@@ -526,28 +526,95 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
-    transform: scale(0);
+    background: rgba(0,0,0,0.3);
+    z-index: 100;
     visibility: hidden;
     transition: 0.3s;
     &-open {
-        transform: scale(1.0);
         visibility: visible;
     }
     &__body {
-        height: 500px;
-        width: 500px;
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translateY(-150%) translateX(-50%);
+        width: 90%;
         background: #fff;
+        transition: 0.3s;
+        padding: 30px;
+        border-radius: 20px;
+        &-open {
+            transform: translateY(0) translateX(-50%);
+        }
+        h3 {
+            font-size: 18px;
+        }
+        h4 {
+            font-size: 14px;
+            .regular();
+            margin-bottom: 10px;
+        }
+        input {
+            display: flex;
+            align-items: center;
+            height: 50px;
+            width: 100%;
+            padding: 0px 20px;
+            font-size: 1em;
+            border: 1px solid #1c1c1c;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: inline-block;
+            font-size: 14px;
+            position: relative;
+            top: 10px;
+            left: 10px;
+            padding: 0px 10px;
+            background: #fff;
+        }
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            width: 100%;
+            background: @blue;
+            border-radius: 20px;
+            color: #fff;
+            .bold();
+            cursor: pointer;
+        }
     }
-}
-.backdrop {
-    background: rgba(0, 0, 0, 0.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 19;
+    &__close {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        top: -40px;
+        z-index: 102;
+        cursor: pointer;
+        span {
+            display: block;
+            width: 40px;
+            height: 4px;
+            border-radius: 4px;
+            background: #000;
+            margin: 5px 0px;
+        }
+        span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+        span:nth-child(2) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    }
+    
 }
 
 @media (min-width: 1201px) {
