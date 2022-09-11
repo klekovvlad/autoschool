@@ -25,8 +25,8 @@ const faqQuestion = document.querySelectorAll('.faq__question');
 
 faqQuestion.forEach(question => {
     question.addEventListener('click', () => {
-        question.childNodes[3].classList.toggle('faq__answer-open');
-        question.childNodes[1].classList.toggle('arrow-open');
+        question.childNodes[5].classList.toggle('faq__answer-open');
+        question.childNodes[3].classList.toggle('arrow-open');
     })
 })
 
