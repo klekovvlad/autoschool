@@ -28,6 +28,33 @@ faqQuestion.forEach(question => {
         question.childNodes[5].classList.toggle('faq__answer-open');
         question.childNodes[3].classList.toggle('arrow-open');
     })
+});
+
+const header = document.querySelector('.header');
+const main = document.querySelector('.main');
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  let scrollPosition = 100;
+  
+  if(document.body.scrollTop > scrollPosition || document.documentElement.scrollTop > scrollPosition) {
+    header.classList.add('header-fixed');
+    main.classList.add('main-top');
+  };
+};
+
+const popupButton = document.querySelectorAll('.modal');
+const popup = document.querySelector('.popup');
+
+popupButton.forEach(openPopup => {
+    openPopup.addEventListener('click', () => {
+      popup.classList.toggle('popup-open');
+    })
+});
+
+popup.addEventListener('click', () => {
+  popup.classList.toggle('popup-open');
 })
 
 $('.feedback__slider').slick({

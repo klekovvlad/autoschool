@@ -93,6 +93,20 @@ body {
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.25);
     position: relative;
     z-index: 5;
+    transition: 0.5s;
+    &-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(-100%);
+        animation: switchtop 0.5s linear forwards;
+    }
+    @keyframes switchtop {
+        to {
+            transform: translateY(0);
+        }
+    }
     &__wrapper {
         display: grid;
         grid-template-columns: 60px 1fr;
@@ -161,6 +175,7 @@ body {
         left: 0;
         bottom: 0;
         width: 70vw;
+        min-height: 100vh;
         background: #fff;
         z-index: 10;
         padding-top: 30%;
@@ -190,6 +205,9 @@ body {
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
+    &-top {
+        margin-top: 50px;
+    }
     &__wrapper {
         display: grid;
         grid-template-columns: 1fr;
@@ -206,7 +224,7 @@ body {
             font-size: 14px;
             margin-top: 20px;
         }
-        a.button {
+        button.modal {
             display: flex;
             width: 250px;
             height: 60px;
@@ -217,6 +235,7 @@ body {
             color: #fff;
             margin-top: 30px;
             .bold();
+            cursor: pointer;
         }
     }
     &__image {
@@ -288,7 +307,7 @@ body {
             .bold();
             margin: 15px 0px;
         }
-        a {
+        button.modal {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -299,6 +318,7 @@ body {
             border-radius: 20px;
             color: #fff;
             .bold();
+            cursor: pointer;
         }
     }
 }
@@ -378,7 +398,7 @@ body {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
         grid-gap: 30px;
-        span {
+        a {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -387,6 +407,11 @@ body {
             height: 40px;
             border: 2px solid #039BE5;
             border-radius: 20px;    
+            transition: 0.5s;
+        }
+        a:hover {
+            background: @blue;
+            color: #fff;
         }
     }
 }
@@ -406,6 +431,7 @@ body {
         border-radius: 20px;
         position: relative;
         margin-bottom: 30px;
+        cursor: pointer;
         span {
             display: block;
             padding-right: 50px;
@@ -494,6 +520,36 @@ body {
     }
 }
 
+.popup {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transform: scale(0);
+    visibility: hidden;
+    transition: 0.3s;
+    &-open {
+        transform: scale(1.0);
+        visibility: visible;
+    }
+    &__body {
+        height: 500px;
+        width: 500px;
+        background: #fff;
+    }
+}
+.backdrop {
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 19;
+}
+
 @media (min-width: 1201px) {
     h3 {
         font-size: 40px;
@@ -527,12 +583,17 @@ body {
         &__nav {
             position: relative;
             width: 100%;
+            min-height: 100%;
             background: none;
             padding: 0;
             transform: translateX(0);
+            display: grid;
+            grid-template-columns: 1fr;
+            align-items: center;
             ul {
                 display: flex;
                 justify-content: space-evenly;
+                align-items: center;
                 li {
                     margin: 0px;
                     display: inline-block;
@@ -563,7 +624,7 @@ body {
                 font-size: 22px;
                 max-width: 80%;
             }
-            a.button {
+            button.modal {
                 font-size: 22px;
                 width: 350px;
                 height: 80px;
@@ -607,7 +668,7 @@ body {
             span.price {
                 margin: 20px 0px;
             }
-            a {
+            button.modal {
                 height: 50px;
             }
             img {
@@ -640,8 +701,10 @@ body {
             margin: 0px;
             opacity: 1.0;
             img {
-                height: 100%;
-                width: 100%;
+                display: block;
+                margin: 0px auto;
+                height: 400px;
+                width: 300px;
             }
         }
         .slick-arrow {
@@ -649,6 +712,7 @@ body {
             bottom: 50%;
             transform: translateY(50%);
             z-index: 5;
+            cursor: pointer;
         }
         .slick-prev {
             left: -60px;
@@ -664,7 +728,7 @@ body {
         &__wrapper {
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 60px;
-            span {
+            a {
                 height: 60px;  
             }
         }
