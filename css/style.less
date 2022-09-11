@@ -1,18 +1,22 @@
 @font-face {
     font-family: 'Inter-Regular';
     src: url(../fonts/Inter-Regular.ttf);
+    font-display: swap;
 }
 @font-face {
     font-family: 'Inter-SemiBold';
     src: url(../fonts/Inter-SemiBold.ttf);
+    font-display: swap;
 }
 @font-face {
     font-family: 'Inter-Bold';
     src: url(../fonts/Inter-Bold.ttf);
+    font-display: swap;
 }
 @font-face {
     font-family: 'Inter-Medium';
     src: url(../fonts/Inter-Medium.ttf);
+    font-display: swap;
 }
 .regular() {font-family: Inter-Regular, sans-serif;}
 .sbold() {font-family: Inter-SemiBold, sans-serif;}
@@ -71,12 +75,56 @@ body {
         img {
             display: none;
         }
-        width: 40px;
-        height: 40px;
-        background: url(../img/icons/menu.svg) no-repeat center;
-        background-size: cover;
-        z-index: 11;
-        transition: 1s;
+        .mobile__button {
+            width: 40px;
+            height: 40px;
+            background: #000;
+            border-radius: 50%;
+            position: relative;
+            z-index: 15;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            span {
+                width: 20px;
+                height: 3px;
+                margin: 2px 0px;
+                background: #fff;
+                border-radius: 2px;
+            }
+            .out {
+                animation: out 0.5s linear forwards;
+            }
+            .topline {
+                animation: topline 0.5s linear forwards;
+            }
+            .bottomline {
+                animation: bottomline 0.5s linear forwards;
+            }
+        }
+    }
+    .fixed {
+        position: fixed;
+        top: 25px;
+    }
+    @keyframes out {
+        to {
+            transform: translateX(-200%);
+        }
+    }
+    @keyframes topline {
+        to {
+            transform: translateY(7px) rotate(45deg);
+        }
+    }
+    @keyframes bottomline {
+        to {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+    }
+    .mobile__menu-open {
+        transform: translateX(0%);
     }
     &__nav {
         position: fixed;
@@ -99,13 +147,6 @@ body {
                 }
             }
         }
-    }
-    &__nav-open {
-        transform: translateX(0%);
-    }
-    .close {
-        background-image: url(../img/icons/close.svg);
-        position: fixed;
     }
     &__btn {
         display: grid;

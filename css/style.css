@@ -64,16 +64,58 @@ body {
   grid-template-rows: auto;
   align-items: center;
 }
-.header__logo {
-  width: 40px;
-  height: 40px;
-  background: url(../img/icons/menu.svg) no-repeat center;
-  background-size: cover;
-  z-index: 11;
-  transition: 1s;
-}
 .header__logo img {
   display: none;
+}
+.header__logo .mobile__button {
+  width: 40px;
+  height: 40px;
+  background: #000;
+  border-radius: 50%;
+  position: relative;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header__logo .mobile__button span {
+  width: 20px;
+  height: 3px;
+  margin: 2px 0px;
+  background: #fff;
+  border-radius: 2px;
+}
+.header__logo .mobile__button .out {
+  animation: out 0.5s linear forwards;
+}
+.header__logo .mobile__button .topline {
+  animation: topline 0.5s linear forwards;
+}
+.header__logo .mobile__button .bottomline {
+  animation: bottomline 0.5s linear forwards;
+}
+.header .fixed {
+  position: fixed;
+  top: 25px;
+}
+@keyframes out {
+  to {
+    transform: translateX(-200%);
+  }
+}
+@keyframes topline {
+  to {
+    transform: translateY(7px) rotate(45deg);
+  }
+}
+@keyframes bottomline {
+  to {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+.header .mobile__menu-open {
+  transform: translateX(0%);
 }
 .header__nav {
   position: fixed;
@@ -94,13 +136,6 @@ body {
 }
 .header__nav ul li a {
   font-size: 18px;
-}
-.header__nav-open {
-  transform: translateX(0%);
-}
-.header .close {
-  background-image: url(../img/icons/close.svg);
-  position: fixed;
 }
 .header__btn {
   display: grid;
