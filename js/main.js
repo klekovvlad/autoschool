@@ -2,22 +2,21 @@ const menuMobile = document.querySelector('.header__nav');
 const menuButton = document.querySelector('.mobile__button');
 const menuLinks = document.querySelectorAll('.nav__link');
 
-
-menuButton.addEventListener('click', () => {
+function buttonAnimate() {
     menuButton.childNodes[3].classList.toggle('out');
     menuButton.childNodes[1].classList.toggle('topline');
     menuButton.childNodes[5].classList.toggle('bottomline');
     menuButton.classList.toggle('fixed');
     menuMobile.classList.toggle('mobile__menu-open');
+}
+
+menuButton.addEventListener('click', () => {
+    buttonAnimate();
 })
 
 menuLinks.forEach(elem => {
     elem.addEventListener('click', () => {
-        menuMobile.classList.toggle('mobile__menu-open');
-        menuButton.childNodes[3].classList.toggle('out');
-        menuButton.childNodes[1].classList.toggle('topline');
-        menuButton.childNodes[5].classList.toggle('bottomline');
-        menuButton.classList.toggle('fixed');
+      buttonAnimate();
     });
 });
 
@@ -44,22 +43,6 @@ function scrollFunction() {
   };
 };
 
-const popupButton = document.querySelectorAll('.modal');
-const popup = document.querySelector('.popup');
-const popupBody = document.querySelector('.popup__body');
-const popupClose = document.querySelector('.popup__close');
-
-popupButton.forEach(openPopup => {
-    openPopup.addEventListener('click', () => {
-      popup.classList.toggle('popup-open');
-      popupBody.classList.toggle('popup__body-open');
-    })
-});
-popupClose.addEventListener('click', () => {
-  popup.classList.toggle('popup-open');
-  popupBody.classList.toggle('popup__body-open');
-})
-
 $('.feedback__slider').slick({
     infinite: false,
     slidesToShow: 3,
@@ -80,30 +63,4 @@ $('.feedback__slider').slick({
         }
       }
     ]
-});
-
-jQuery(function($){
-  $("#phone").mask("+7 (999) 999-99-99");
-});
-
-jQuery(document).ready(function($) {
-
-  $(".form").submit(function() {
-  var str = $(this).serialize();
-    $.ajax({
-    type: "POST",
-    url: "/contact.php",
-    data: str,
-    success: function(msg) {
-    if(msg == 'OK') {
-    result = '<b style="display: block; text-align: center; font-size: 18px; font-family: Inter-Bold">Спасибо</b><br><span style="display: block; margin: 10px auto; text-align: center; font-size: 1em;">Ожидайте звонка менеджера</span>';
-    $(".fields").hide();
-    } else {
-    result = msg;
-    }
-    $('.note').html(result);
-    }
-    });
-    return false;
-    });
 });

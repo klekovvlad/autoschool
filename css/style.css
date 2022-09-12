@@ -38,9 +38,10 @@ h4 {
 h3 {
   font-family: Inter-Bold, sans-serif;
   font-size: 24px;
+  margin-bottom: 20px;
 }
 h4 {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 40px;
 }
 a.social {
@@ -165,10 +166,10 @@ body {
   transition: 0.5s;
 }
 .header__nav ul li {
-  margin: 5px 0px;
+  margin: 20px 0px;
 }
 .header__nav ul li a {
-  font-size: 18px;
+  font-size: 20px;
 }
 .header__btn {
   display: grid;
@@ -202,7 +203,7 @@ body {
   font-size: 14px;
   margin-top: 20px;
 }
-.main__info button.modal {
+.main__info a {
   display: flex;
   width: 250px;
   height: 60px;
@@ -285,7 +286,7 @@ body {
   font-family: Inter-Bold, sans-serif;
   margin: 15px 0px;
 }
-.category__box button.modal {
+.category__box a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -490,108 +491,6 @@ body {
   filter: invert(1);
   margin-right: 15px;
 }
-.popup {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 100;
-  visibility: hidden;
-  transition: 0.3s;
-}
-.popup-open {
-  visibility: visible;
-}
-.popup__body {
-  position: fixed;
-  top: 20%;
-  left: 50%;
-  transform: translateY(-150%) translateX(-50%);
-  width: 90%;
-  background: #fff;
-  transition: 0.3s;
-  padding: 30px;
-  border-radius: 20px;
-}
-.popup__body-open {
-  transform: translateY(0) translateX(-50%);
-}
-.popup__body h3 {
-  font-size: 18px;
-}
-.popup__body h4 {
-  font-size: 14px;
-  font-family: Inter-Regular, sans-serif;
-  margin-bottom: 10px;
-}
-.popup__body input {
-  display: flex;
-  align-items: center;
-  height: 50px;
-  width: 100%;
-  padding: 0px 20px;
-  font-size: 1em;
-  border: 1px solid #1c1c1c;
-  border-radius: 20px;
-  margin-bottom: 20px;
-}
-.popup__body label {
-  display: inline-block;
-  font-size: 14px;
-  position: relative;
-  top: 10px;
-  left: 10px;
-  padding: 0px 10px;
-  background: #fff;
-}
-.popup__body button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  width: 100%;
-  background: #039BE5;
-  border-radius: 20px;
-  color: #fff;
-  font-family: Inter-Bold, sans-serif;
-  cursor: pointer;
-}
-.popup__close {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #fff;
-  border-radius: 50%;
-  position: absolute;
-  right: 0;
-  top: -50px;
-  z-index: 102;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: 0.5s;
-}
-.popup__close span {
-  display: block;
-  width: 20px;
-  height: 4px;
-  border-radius: 4px;
-  background: #000;
-  margin: 5px 0px;
-}
-.popup__close span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-.popup__close span:nth-child(2) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-.popup__close:hover {
-  opacity: 1;
-}
 @media (min-width: 701px) and (max-width: 1200px) {
   h3 {
     font-size: 28px;
@@ -652,6 +551,7 @@ body {
     grid-template-columns: 1fr 1fr;
   }
   .main__info {
+    text-align: left;
     margin-top: 100px;
   }
   .main__info h1 {
@@ -659,6 +559,9 @@ body {
   }
   .main__info h2 {
     font-size: 14px;
+  }
+  .main__info a {
+    margin: 30px 0px 0px 0px;
   }
   .main__image {
     margin-top: 100px;
@@ -739,17 +642,13 @@ body {
   .footer__btn {
     margin-left: auto;
   }
-  .popup__body {
-    top: 60px;
-    width: 400px;
-  }
 }
 @media (min-width: 1201px) {
   h3 {
     font-size: 40px;
   }
   h4 {
-    font-size: 14px;
+    font-size: 16px;
   }
   a.feedback {
     padding: 10px 20px;
@@ -808,6 +707,7 @@ body {
   }
   .main__info {
     margin-top: 0px;
+    text-align: left;
   }
   .main__info h1 {
     font-size: 48px;
@@ -816,12 +716,15 @@ body {
     font-size: 22px;
     max-width: 80%;
   }
-  .main__info button.modal {
+  .main__info a {
+    margin: 0;
+    margin-top: 50px;
     font-size: 22px;
     width: 350px;
     height: 80px;
   }
   .main__image img {
+    position: absolute;
     top: 0%;
     left: -50%;
     max-width: none;
@@ -860,7 +763,7 @@ body {
   .category__box span.info {
     min-height: 30px;
   }
-  .category__box button.modal {
+  .category__box a {
     height: 50px;
   }
   .category__box img {
