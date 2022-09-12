@@ -85,3 +85,25 @@ $('.feedback__slider').slick({
 jQuery(function($){
   $("#phone").mask("+7 (999) 999-99-99");
 });
+
+jQuery(document).ready(function($) {
+
+  $(".form").submit(function() {
+  var str = $(this).serialize();
+    $.ajax({
+    type: "POST",
+    url: "/contact.php",
+    data: str,
+    success: function(msg) {
+    if(msg == 'OK') {
+    result = '<b style="display: block; text-align: center; font-size: 18px; font-family: Inter-Bold">Спасибо</b><br><span style="display: block; margin: 10px auto; text-align: center; font-size: 1em;">Ожидайте звонка менеджера</span>';
+    $(".fields").hide();
+    } else {
+    result = msg;
+    }
+    $('.note').html(result);
+    }
+    });
+    return false;
+    });
+});
