@@ -740,6 +740,7 @@ body {
     margin-left: auto;
   }
   .popup__body {
+    top: 60px;
     width: 400px;
   }
 }
