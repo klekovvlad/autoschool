@@ -61,7 +61,7 @@ popupClose.addEventListener('click', () => {
 })
 
 $('.feedback__slider').slick({
-    infinite: true,
+    infinite: false,
     slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
@@ -80,4 +80,8 @@ $('.feedback__slider').slick({
         }
       }
     ]
-  });
+});
+
+jQuery(function($){
+  $("#phone").mask("+7 (999) 999-99-99");
+});
