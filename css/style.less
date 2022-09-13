@@ -441,13 +441,16 @@ body {
         }
     }
     &__answer {
-        display: none;
-        margin-top: 25px;
-        padding-top: 25px;
-        border-top: 1px solid #626262;
         .regular();
+        transform: scaleY(0);
+        transition: 0.3s linear;
+        height: 0;
         &-open {
-            display: block;
+            height: 100%;
+            transform: scaleY(1.0);
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #626262;
         }
     }
 }
@@ -735,6 +738,13 @@ body {
                     display: inline-block;
                     a {
                         font-size: 18px;
+                        padding: 7px 15px;
+                        transition: 1s;
+                        border-radius: 20px;
+                    }
+                    a:hover {
+                        color: #fff;
+                        box-shadow: inset 300px 0px 0px @blue;
                     }
                 }
             }
